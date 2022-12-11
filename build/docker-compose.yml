@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  helper-service:
+    build:
+      context: ./../helper-service
+      dockerfile: ./../helper-service/helper-service.dockerfile
+    # restart: always
+    ports:
+      - "50001:50001"
+
+  seed-service:
+    build:
+      context: ./../seed-service
+      dockerfile: ./../seed-service/seed-service.dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+    deploy:
+      mode: relicated
+      replicas: 1
+
+

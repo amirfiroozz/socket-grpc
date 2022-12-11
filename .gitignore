@@ -1,0 +1,6 @@
+todo
+front/node_modules
+helper-service/__pycache__
+helper-service/server/__pycache__
+helper-service/proto/__pycache__
+seed-service/seedApp

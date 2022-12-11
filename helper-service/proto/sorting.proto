@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package sorting;
+
+message Error {
+    bool isError = 1;
+    string message = 2;
+}
+
+message RequestSorting {
+    string type = 1;
+    repeated int64 array =2;
+    bool isDone = 3;
+    float sleepTime = 4;
+}
+
+message ResponseSorting {
+    repeated int64 array =1;
+    bool isDone = 2;
+    int64 left = 3;
+    int64 right = 4;
+    Error error = 5;
+}
+
+service SortingService {
+    rpc Sort(RequestSorting) returns(stream ResponseSorting);
+}
